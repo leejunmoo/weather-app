@@ -99,8 +99,8 @@ function printWeatherData(data) {
   tempEl.innerHTML = `${temp}&deg;`
   descEl.textContent = desc;
   // 백그라운드 이미지 바꾸기
-  /* bgEl.style.backgroundImage = "url('images/bg/day-sun.jfif')";
-  console.log('배경이미지');  */
+  bgEl.style.backgroundImage = "url(src/images/bg/day-sun.jfif)";
+  console.log('배경이미지'); 
 }
 
 // 위치정보 기반 데이터 호출 실패
@@ -126,8 +126,8 @@ navigator.geolocation.getCurrentPosition(function (position){
   
 } */
 
-$(function(){
+/* $(function(){
   $('#app').css({
     "background":"url(images/bg/rain.jfif)",
   })
-})
+}) */

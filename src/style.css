@@ -24,7 +24,7 @@ ul {
     height: 500px;
     outline: 1px solid black;
     background-color: skyblue;
-    background-image: url(images/bg/cloudy.jfif);
+    /* background-image: url(images/bg/cloudy.jfif); */
 }
 
 #app h1 {
