@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>날씨 앱</title>
+    <!-- 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/style.css">
     <!-- 제이쿼리 -->
     <script
@@ -12,15 +14,53 @@
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
+    
 </head>
 <body>
     <div id="app">
-        <h1>오늘의 날씨</h1>
+        <!-- <h1>오늘의 날씨</h1> -->
         <ul>
-            <li class="cityname">도시명</li>
-            <li class="icon">아이콘</li>
             <li class="temp"></li>
-            <li class="desc">description</li>
+            <li class="cityname">도시명</li>
+            <li>
+                <div class="app-text"> 
+                    <p class="day">Today</p>
+                    <div class="app-icon">
+                        <p class="icon">아이콘</p>
+                        <p class="desc">description</p>
+                    </div>
+                </div>
+                <ul class="app-text-more-list">
+                    <li>
+                        <div class="app-text-more">
+                            <ul>
+                                <li>humidity
+                                    <p class="humidity">습도적어요</p>
+                                </li>
+                                <li>speed
+                                    <p class="speed">풍속적어요</p>
+                                </li>
+                                <li>max
+                                    <p class="temp-max">최고온도적어요</p>
+                                </li>
+                                <li>min
+                                    <p class="temp-min">최저온도 적어요</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="app-text-tomorrow">
+                    <p class="tomorrow">Tomorrow</p>
+                    <div class="app-tomorrow-icon">
+                        <p class="icon"><img src="src/images/01d.svg" alt="맑음"></p>
+                        <p class="desc">sun</p>
+                    </div>
+                </div>  
+            </li>
+            
         </ul>
        <!--  <select name="select" id="select">
             <option value="seoul">서울</option>
@@ -35,5 +75,6 @@
 
 
     <script src="src/app.js"></script>
+    <script src="src/time.js"></script>
 </body>
 </html>
