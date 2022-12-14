@@ -1,61 +1,4 @@
-/* // app.js
-const API_KEY = '179ceeb11c23a912fefd41421f453ea0';
-let city_name = 'seoul';
-let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`
-
-
-function getWeatherData(cityname = 'seoul') {
-  // 도시명 업데이트
-  city_name = cityname;
-  API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`
-
-  fetch(API_URL)
-  .then(function(응답데이터){
-    return 응답데이터.json()
-  })
-  .then(function(data){
-    console.log(data);
-    showWeather(data)
-  })
-
-} // getWeatherData
-
-function showWeather(data) {
-  const desc = data.weather[0].main; // 날씨상태 설명
-  const weather_icon = data.weather[0].icon; // 아이콘
-  const temp = parseInt(data.main.temp - 273.15); // 현재온도
-  const name = data.name; // 도시명
-  console.log(name, desc, weather_icon, temp);
-
-  // UI 출력(DOM)
-  const citynameEl = document.querySelector('.cityname');
-  const iconEl = document.querySelector('.icon');
-  const tempEl = document.querySelector('.temp');
-  const descEl = document.querySelector('.desc');
-
-  citynameEl.textContent = name;
-  iconEl.innerHTML = `<img src='src/images/${weather_icon}.svg' alt=weather_icon/>`
-  tempEl.innerHTML = `${temp}&deg;`
-  descEl.textContent = desc;
-}
-
-
-// 날씨 함수 호출
-getWeatherData()
-
-
-// 선택목록(도시명) 변경 이벤트
-const select = document.getElementById('select');
-select.addEventListener('change', function(e){
-
-  const cityname = e.target.value
-  getWeatherData(cityname)
-}) */
-
-// 응용
-// 1. 날씨나 시간대(주간/야간)에 따라 배경 연출 바꾸기
-// 2. 아이콘을 다른 것으로 변경
-// 3. 기타 등등
+// app.js
 
 
 // 위치를 기반하여 날씨 조회
@@ -68,6 +11,10 @@ const iconEl = document.querySelector('.icon');
 const tempEl = document.querySelector('.temp');
 const descEl = document.querySelector('.desc');
 const bgEl = document.querySelector('#app');
+const humidityEl = document.querySelector('.humidity');
+const speedEl = document.querySelector('.speed');
+const tempMaxEl = document.querySelector('.temp-max');
+const tempMinEl = document.querySelector('.temp-min');
 
 navigator.geolocation.getCurrentPosition(function (위치) {
   console.log(위치);
@@ -92,16 +39,61 @@ function printWeatherData(data) {
   const weather_icon = data.weather[0].icon; // 아이콘
   const temp = parseInt(data.main.temp); // 현재온도
   const name = data.name; // 도시명
+  const humidity = data.main.humidity; // 습도
+  const speed = data.wind.speed; // 풍속
+  const tempMax = Math.floor(data.main.temp_max); // 최고온도 (소수점버림)
+  const tempMin = Math.floor(data.main.temp_min); // 최저온도 (소수점버림)
   console.log(name, desc, weather_icon, temp);
   // 출력한 정보를 텍스트로 넣기
   citynameEl.textContent = name;
   iconEl.innerHTML = `<img src='src/images/${weather_icon}.svg' alt=weather_icon/>`
   tempEl.innerHTML = `${temp}&deg;`
   descEl.textContent = desc;
+  humidityEl.innerHTML = humidity + '%';
+  speedEl.innerHTML = speed + 'm/s';
+  tempMaxEl.innerHTML = tempMax + '&deg';
+  tempMinEl.innerHTML = tempMin + '&deg';
+
   // 백그라운드 이미지 바꾸기
-  bgEl.style.backgroundImage = "url(src/images/bg/day-sun.jfif)";
-  console.log('배경이미지'); 
-}
+  if(weather_icon == '01d' ) {
+    bgEl.style.backgroundImage = "url(src/images/bg/day-sun.jfif)";
+    // console.log('배경이미지'); 
+  } else if (weather_icon == '02d') {
+    bgEl.style.backgroundImage = "url(src/images/bg/cloudy.jfif)";
+  } else if (weather_icon == '03d') {
+    bgEl.style.backgroundImage = "url(src/images/bg/cloudy.jfif)";
+  } else if (weather_icon == '04d') {
+    bgEl.style.backgroundImage = "url(src/images/bg/cloudy.jfif)";
+  } else if (weather_icon == '09d') {
+    bgEl.style.backgroundImage = "url(src/images/bg/rain.jfif)";
+  } else if (weather_icon == '10d') {
+    bgEl.style.backgroundImage = "url(src/images/bg/rain.jfif)";
+  } else if (weather_icon == '11d') {
+    bgEl.style.backgroundImage = "url(src/images/bg/storm.jfif)";
+  } else if (weather_icon == '13d') {
+    bgEl.style.backgroundImage = "url(src/images/bg/day-snow.jfif)","fillter";
+  } else if (weather_icon == '50d') {
+    bgEl.style.backgroundImage = "url(src/images/bg/cloudy.jfif)";
+  } else if (weather_icon == '01n') {
+    bgEl.style.backgroundImage = "url(src/images/bg/night-sun.jfif)";
+  } else if (weather_icon == '02n') {
+    bgEl.style.backgroundImage = "url(src/images/bg/day-cloudy.jfif)";
+  } else if (weather_icon == '03n') {
+    bgEl.style.backgroundImage = "url(src/images/bg/day-cloudy.jfif)";
+  } else if (weather_icon == '04n') {
+    bgEl.style.backgroundImage = "url(src/images/bg/day-cloudy.jfif)";
+  } else if (weather_icon == '09n') {
+    bgEl.style.backgroundImage = "url(src/images/bg/night-rain.jfif)";
+  } else if (weather_icon == '010n') {
+    bgEl.style.backgroundImage = "url(src/images/bg/night-rain.jfif)";
+  } else if (weather_icon == '11n') {
+    bgEl.style.backgroundImage = "url(src/images/bg/storm.jfif)";
+  } else if (weather_icon == '13n') {
+    bgEl.style.backgroundImage = "url(src/images/bg/night-snow.jfif)";
+  } else if (weather_icon == '50n') {
+    bgEl.style.backgroundImage = "url(src/images/bg/day-cloudy.jfif)";
+  } 
+} 
 
 // 위치정보 기반 데이터 호출 실패
 function failLocating(){
@@ -117,17 +109,12 @@ navigator.geolocation.getCurrentPosition(function (position){
   getDataByLocating(latitude, longitude);
 }, failLocating);
 
-// 날씨에 따른 배경 변화
-/* function weatherBg(){
-  if( weather_icon == '50d' ) {
-    bgEl.style.background = "url(images/bg/cloudy.jfif)";
-    console.log('배경이미지');  
-  }
-  
-} */
 
-/* $(function(){
-  $('#app').css({
-    "background":"url(images/bg/rain.jfif)",
+// 더보기 클릭 이벤트 등록
+$(function(){
+  $('#app .app-text').on('click', function(){
+    $('#app .app-text-more-list .app-text-more ul').toggleClass('show');
+    $('#app .app-text-tomorrow').toggleClass('show');
+    
   })
-}) */
+})

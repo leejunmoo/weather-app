@@ -1,5 +1,6 @@
 /* stylee.css*/
 
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +12,8 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-    color: #fff;
+    color: #000;
+    font-family: 'Ubuntu', sans-serif;
     
 }
 
@@ -20,11 +22,14 @@ ul {
 }
 
 #app {
-    width: 300px;
-    height: 500px;
+    width: 700px;
+    height: 1000px;
     outline: 1px solid black;
     background-color: skyblue;
-    /* background-image: url(images/bg/cloudy.jfif); */
+    /* filter: grayscale(0.6); */
+    background-image: url(images/bg/cloudy.jfif);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #app h1 {
@@ -34,14 +39,91 @@ ul {
 #app ul .cityname {
     font-size: 3rem;
     margin-bottom: 30px;
+    margin-top: 10px;
 }
 
 .temp {
     font-size: 5rem;
+    /* margin-left: 85px; */
+    margin-top: 100px;
 }
 
-.desc {
+/* 하단부 텍스트 */
+
+.desc, #app p:not(.icon) {
     font-size: 2rem;
+    /* margin-left: 65px; */
+    font-weight: 700;
+}
+
+#app .app-text {
+    width: 600px;
+    margin-top: 490px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#app .app-text > p {
+    margin-top: 40px;
+}
+
+#app .app-text-tomorrow > p {
+    margin-top: 25px;
+}
+
+#app .app-text-tomorrow {
+    width: 600px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#app .app-text {
+    border-bottom: 1px solid #333;
+}
+
+#app .app-text .app-icon {
+    margin-bottom: 10px;
+}
+
+#app .app-text-tomorrow {
+    margin-top: 20px;
+}
+
+#app .app-text-tomorrow .app-tomorrow-icon {
+    margin-right: 20px;
+}
+
+/* 더보기 */
+/* 목록 숨김 */
+#app .app-text-more-list .app-text-more ul {
+    display: flex;
+    justify-content: space-around;
+    max-height: 50px;
+    display: none;
+}
+/* 목록 보임 */
+#app .app-text-more-list .app-text-more ul.show {
+    display: flex;
+}
+/* 커서효과 */
+#app .app-text {
+    cursor: pointer;
+}
+
+#app .app-text-more-list .app-text-more ul li {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#app .app-text-more-list .app-text-more ul li p {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+#app .app-text-tomorrow.show {
+    display: none;
 }
 
 select {
