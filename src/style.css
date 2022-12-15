@@ -22,6 +22,7 @@ ul {
 }
 
 #app {
+    margin-top: 30px;
     width: 700px;
     height: 1000px;
     outline: 1px solid black;
