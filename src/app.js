@@ -135,7 +135,6 @@ $(function(){
 })
 
 
-
 $(function(){
   $('#app .app-text-tomorrow').hover(function(){
     $('#app .app-text-tomorrow .tomorrow').html("<p class='tomorrow-hover'>Tomorrow Weather info More")
