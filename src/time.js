@@ -1,6 +1,6 @@
 // time.js
 
-setInterval(function(){
+let start = setInterval(function(){
     // const dayEl = document.querySelector('.day')
     const tomorrowEl = document.querySelector('.tomorrow')
 
@@ -36,4 +36,9 @@ setInterval(function(){
     // dayEl.innerText = day;
     tomorrowEl.innerText = tomorrow;
     
-},1000)
+    
+},1)
+
+function stop() {
+    clearInterval(start);
+}

@@ -92,12 +92,13 @@ ul {
 }
 
 #app .app-text-tomorrow .app-tomorrow-icon {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 /* 더보기 */
 /* 목록 숨김 */
-#app .app-text-more-list .app-text-more ul {
+#app .app-text-more-list .app-text-more ul,
+#app .app-tomorrow-more-list .app-tomorrow-more ul {
     display: flex;
     justify-content: space-around;
     max-height: 50px;
@@ -108,21 +109,58 @@ ul {
     display: flex;
 }
 /* 커서효과 */
-#app .app-text {
+#app .app-text, #app .app-text-tomorrow {
     cursor: pointer;
 }
 
-#app .app-text-more-list .app-text-more ul li {
+#app .app-text-more-list .app-text-more ul li,
+#app .app-tomorrow-more-list .app-tomorrow-more ul li {
     font-size: 24px;
     font-weight: 700;
 }
 
-#app .app-text-more-list .app-text-more ul li p {
+#app .app-text-more-list .app-text-more ul li p,
+#app .app-tomorrow-more-list .app-tomorrow-more ul li p {
     font-size: 24px;
     font-weight: 500;
 }
 
 #app .app-text-tomorrow.show {
+    display: none;
+}
+
+/* tomorrow 클릭시 스타일 */
+#app .app-text.to-show {
+    display: none;
+}
+
+#app .app-text-tomorrow.to-show {
+    margin-top: 490px;
+    border-bottom: 1px solid #333;
+}
+
+#app .app-tomorrow-more-list .app-tomorrow-more ul.to-show {
+    display: flex;
+}
+
+/* app-text hover시 스타일 */
+#app .app-text:hover, #app .app-text-tomorrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+#app .app-text .day-hover {
+    margin-bottom: 33px;
+}
+
+#app .app-text-tomorrow .tomorrow-hover {
+    margin-bottom: 33px;
+    margin-top: 10px;
+}
+
+
+#app .app-text .app-icon.hover-show,
+#app .app-text-tomorrow .app-tomorrow-icon.hover-show {
     display: none;
 }
 

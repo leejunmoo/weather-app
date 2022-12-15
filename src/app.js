@@ -115,6 +115,72 @@ $(function(){
   $('#app .app-text').on('click', function(){
     $('#app .app-text-more-list .app-text-more ul').toggleClass('show');
     $('#app .app-text-tomorrow').toggleClass('show');
-    
+  })
+  $('#app .app-text-tomorrow').on('click', function(){
+    $('#app .app-tomorrow-more-list .app-tomorrow-more ul').toggleClass('to-show');
+    $('#app .app-text-tomorrow').toggleClass('to-show');
+    $('#app .app-text').toggleClass('to-show');
+  })
+})
+
+// app-text, app-text-tomorrow 에 hover 시 이벤트 등록
+$(function(){
+  $('#app .app-text').hover(function(){
+    $('#app .app-text .day').html("<p class='day-hover'>Today Weather info More</p>")
+    $('#app .app-text .app-icon').addClass('hover-show')
+  }, function(){
+    $('#app .app-text .day').html("<p class='day'>Today</p>")
+    $('#app .app-text .app-icon').removeClass('hover-show')
+  })
+})
+
+
+
+$(function(){
+  $('#app .app-text-tomorrow').hover(function(){
+    $('#app .app-text-tomorrow .tomorrow').html("<p class='tomorrow-hover'>Tomorrow Weather info More")
+    $('#app .app-text-tomorrow .app-tomorrow-icon').addClass('hover-show')
+    clearInterval(start);
+  }, function(){
+    $('#app .app-text-tomorrow .tomorrow').text("Tomorrow")
+    $('#app .app-text-tomorrow .app-tomorrow-icon').removeClass('hover-show')
+    start = setInterval(function(){
+      // const dayEl = document.querySelector('.day')
+      const tomorrowEl = document.querySelector('.tomorrow')
+  
+      let now = new Date();
+      let day = now.getDay();
+      let tomorrow = day+1;
+  
+      //요일 영어 반환
+      if(day==0) {
+          day = `Sun`;
+          tomorrow = `Mon`;
+      } if(day==1) {
+          day = `Mon`;
+          tomorrow = `Tue`;
+      } if(day==2) {
+          day = `Tue`;
+          tomorrow = `Wed`;
+      } if(day==3) {
+          day = `Wed`;
+          tomorrow = `Thur`;
+      } if(day==4) {
+          day = `Thur`;
+          tomorrow = `Fri`;
+      } if(day==5) {
+          day = `Fri`;
+          tomorrow = `Sat`;
+      } if(day==6) {
+          day = `Sat`;
+          tomorrow = `Sun`;
+      }
+      
+  
+      // dayEl.innerText = day;
+      tomorrowEl.innerText = tomorrow;
+      
+      
+  },1)
   })
 })
