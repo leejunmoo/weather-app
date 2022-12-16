@@ -14,7 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #000;
+    color: #fff;
     font-family: 'Ubuntu', sans-serif;
     height: 100vh;
 }
@@ -47,7 +47,7 @@ ul {
 }
 
 #app ul .cityname {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 30px;
     margin-top: 10px;
 }
@@ -57,7 +57,18 @@ ul {
     font-size: 4rem;
     /* margin-left: 85px; */
     /* margin-top: 100px; */
-    margin-top: 20px;
+    margin-top: 50px;
+}
+
+/* 배경색 처리 */
+#app .black {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0px 100px;
+}
+
+#app .black-bottom  {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0 30px;
 }
 
 /* 하단부 텍스트 */
@@ -75,7 +86,7 @@ ul {
     height: 70px;
     /* margin-top: 490px; */
     margin-top: 220px;
-    margin-left: 50px;
+    margin-left: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -92,7 +103,7 @@ ul {
     /* width: 600px; */
     width: 300px;
     height: 70px;
-    margin-left: 50px;
+    margin-left: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -105,10 +116,10 @@ ul {
     margin-bottom: 10px;
 }
 
-#app .app-text-tomorrow {
+/* #app .app-text-tomorrow {
     margin-top: 20px;
 }
-
+ */
 /* #app .app-text-tomorrow .app-tomorrow-icon {
     margin-right: 10px;
 } */
@@ -166,18 +177,11 @@ ul {
 /* app-text hover시 스타일 */
 #app .app-text:hover, #app .app-text-tomorrow:hover {
     background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
 }
 
 #app .app-text .day-hover {
     margin-bottom: 25px;
 }
-
-#app .app-text-tomorrow .tomorrow-hover {
-    /* margin-bottom: 10px;
-    margin-top: 10px; */
-}
-
 
 #app .app-text .app-icon.hover-show,
 #app .app-text-tomorrow .app-tomorrow-icon.hover-show {

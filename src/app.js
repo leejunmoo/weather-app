@@ -180,6 +180,6 @@ $(function(){
       tomorrowEl.innerText = tomorrow;
       
       
-  },1)
+  },0)
   })
 })

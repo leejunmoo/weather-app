@@ -37,7 +37,7 @@ let start = setInterval(function(){
     tomorrowEl.innerText = tomorrow;
     
     
-},1)
+},0)
 
 function stop() {
     clearInterval(start);
